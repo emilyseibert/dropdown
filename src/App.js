@@ -35,11 +35,14 @@ class App extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
-        <Dropdown
-          onChange={this.handleChange}
-          value={this.state.values.name}
-          items={this.state.items}
-        />
+        <div className="container">
+          <Dropdown
+            onChange={this.handleChange}
+            value={this.state.values.name}
+            items={this.state.items}
+          />
+        </div>
+
         <button type="submit">Submit</button>
       </form>
     );
