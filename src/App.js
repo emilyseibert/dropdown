@@ -8,7 +8,12 @@ class App extends React.Component {
 
     this.state = {
       items: [],
+      values: {
+        name: "",
+      },
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -17,11 +22,26 @@ class App extends React.Component {
       .then((res) => this.setState({ items: res.data }));
   }
 
+  handleChange(value) {
+    this.setState((state, props) => ({ ...state, values: { name: value } }));
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    console.log(this.state);
+  }
+
   render() {
     return (
-      <div className="App">
-        <Dropdown items={this.state.items} />
-      </div>
+      <form onSubmit={this.onSubmit.bind(this)}>
+        <Dropdown
+          onChange={this.handleChange}
+          value={this.state.values.name}
+          items={this.state.items}
+        />
+        <button type="submit">Submit</button>
+      </form>
     );
   }
 }

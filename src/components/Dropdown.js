@@ -2,25 +2,25 @@ import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
 class Dropdown extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       closed: true,
-      value: { name: "" },
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(value) {
-    this.setState({ closed: true, value: value });
+    this.setState({ closed: true });
+    this.props.onChange(value);
   }
 
   render() {
     return (
       <div className="dropdown">
         <div className="dropdown-value">
-          <span>{this.state.value.name}</span>
+          <span>{this.props.value.name}</span>
           <button
             onClick={() =>
               this.setState((state) => ({ closed: !state.closed }))
