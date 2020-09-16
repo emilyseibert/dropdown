@@ -7,14 +7,20 @@ class Dropdown extends React.Component {
 
     this.state = {
       closed: true,
+      value: { name: "" },
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(value) {
+    this.setState({ closed: true, value: value });
   }
 
   render() {
     return (
       <div className="dropdown">
         <div className="dropdown-value">
-          <span>Value</span>
+          <span>{this.state.value.name}</span>
           <button
             onClick={() =>
               this.setState((state) => ({ closed: !state.closed }))
@@ -24,7 +30,12 @@ class Dropdown extends React.Component {
           </button>
         </div>
 
-        {!this.state.closed && <DropdownMenu items={this.props.items} />}
+        {!this.state.closed && (
+          <DropdownMenu
+            items={this.props.items}
+            onItemClick={this.handleChange}
+          />
+        )}
       </div>
     );
   }
