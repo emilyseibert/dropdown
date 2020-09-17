@@ -30,7 +30,7 @@ class Dropdown extends React.Component {
               this.setState((state) => ({ closed: !state.closed }))
             }
           >
-            Caret-down
+            v
           </button>
         </div>
 
