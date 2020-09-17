@@ -12,18 +12,31 @@ code {
     monospace;
 }
 
+.dropdown {
+  position: relative;
+  margin-bottom: 10px;
+}
 .dropdown-value {
+  width: 100%;
   height: 30px;
   border: 1px solid #141414;
   border-radius: 3px;
-  padding: 0 5px;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
   justify-content: space-between;
 }
 
+.value {
+  margin-left: 5px;
+}
+
+.dd-btn {
+  margin-right: 5px;
+}
+
 .dropdown-menu {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;

@@ -24,8 +24,9 @@ class Dropdown extends React.Component {
     return (
       <div className="dropdown">
         <div className="dropdown-value">
-          <span>{this.props.value.name}</span>
+          <span className="value">{this.props.value.name}</span>
           <button
+            className="dd-btn"
             onClick={() =>
               this.setState((state) => ({ closed: !state.closed }))
             }
